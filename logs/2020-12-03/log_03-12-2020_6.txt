@@ -1,0 +1,135 @@
+03 дек. 2020 13:24:34,100 [main] INFO  ProductDaoImpl - ProductDao created
+03 дек. 2020 13:24:34,146 [main] INFO  ProductServiceImpl - Product service created
+03 дек. 2020 13:24:34,147 [main] INFO  Product - ProductName - phone received
+03 дек. 2020 13:24:34,147 [main] INFO  Product - ProductName - suit received
+03 дек. 2020 13:24:34,148 [main] INFO  Product - ProductName - laptop received
+03 дек. 2020 13:24:34,148 [main] INFO  Product - ProductName - phone received
+03 дек. 2020 13:24:34,149 [main] INFO  Product - ProductName - sneakers received
+03 дек. 2020 13:24:34,149 [main] INFO  Product - ProductName - car received
+03 дек. 2020 13:24:34,150 [main] INFO  Product - ProductName - powerbank received
+03 дек. 2020 13:24:45,764 [main] INFO  Warehouse - Warehouse created
+03 дек. 2020 13:24:45,863 [main] INFO  WarehouseFromFileCreator - Products: [Product {
+productId=2124854995, productName='phone', UPC=8934393244, manufacturer='CHINA', price=329.99, expirationDate=5, count=564
+}, Product {
+productId=1038579058, productName='suit', UPC=5755659334, manufacturer='ITALY', price=1500, expirationDate=3, count=200
+}, Product {
+productId=1565912599, productName='laptop', UPC=6568565864, manufacturer='USA', price=2499.99, expirationDate=6, count=349
+}, Product {
+productId=1836935968, productName='phone', UPC=3755659225, manufacturer='UK', price=900, expirationDate=4, count=100
+}, Product {
+productId=1847629513, productName='sneakers', UPC=2343563342, manufacturer='MALAYSIA', price=200, expirationDate=2, count=120
+}, Product {
+productId=1726361514, productName='car', UPC=5153563243, manufacturer='BELARUS', price=20000.49, expirationDate=10, count=50
+}, Product {
+productId=1432081845, productName='powerbank', UPC=6578405864, manufacturer='JAPAN', price=95, expirationDate=4, count=80
+}] was filled from input_files/warehouse_input.txt file successfully
+03 дек. 2020 13:24:45,878 [main] INFO  ProductDaoImpl - ProductDao created
+03 дек. 2020 13:24:45,879 [main] INFO  ProductServiceImpl - Product service created
+03 дек. 2020 13:24:45,879 [main] INFO  Product - ProductName - phone received
+03 дек. 2020 13:24:45,880 [main] INFO  Product - ProductName - suit received
+03 дек. 2020 13:24:45,880 [main] INFO  Product - ProductName - laptop received
+03 дек. 2020 13:24:45,880 [main] INFO  Product - ProductName - phone received
+03 дек. 2020 13:24:45,881 [main] INFO  Product - ProductName - sneakers received
+03 дек. 2020 13:24:45,881 [main] INFO  Product - ProductName - car received
+03 дек. 2020 13:24:45,882 [main] INFO  Product - ProductName - powerbank received
+03 дек. 2020 13:24:59,480 [main] INFO  Warehouse - Warehouse created
+03 дек. 2020 13:24:59,573 [main] INFO  WarehouseFromFileCreator - Products: [Product {
+productId=1868415599, productName='phone', UPC=8934393244, manufacturer='CHINA', price=329.99, expirationDate=5, count=564
+}, Product {
+productId=1864914269, productName='suit', UPC=5755659334, manufacturer='ITALY', price=1500, expirationDate=3, count=200
+}, Product {
+productId=2106865288, productName='laptop', UPC=6568565864, manufacturer='USA', price=2499.99, expirationDate=6, count=349
+}, Product {
+productId=1172618709, productName='phone', UPC=3755659225, manufacturer='UK', price=900, expirationDate=4, count=100
+}, Product {
+productId=1638588528, productName='sneakers', UPC=2343563342, manufacturer='MALAYSIA', price=200, expirationDate=2, count=120
+}, Product {
+productId=1540196190, productName='car', UPC=5153563243, manufacturer='BELARUS', price=20000.49, expirationDate=10, count=50
+}, Product {
+productId=2072958826, productName='powerbank', UPC=6578405864, manufacturer='JAPAN', price=95, expirationDate=4, count=80
+}] was filled from input_files/warehouse_input.txt file successfully
+03 дек. 2020 13:24:59,585 [main] INFO  ProductDaoImpl - ProductDao created
+03 дек. 2020 13:24:59,586 [main] INFO  ProductServiceImpl - Product service created
+03 дек. 2020 13:24:59,586 [main] INFO  Product - ProductName - phone received
+03 дек. 2020 13:24:59,587 [main] INFO  Product - ProductName - suit received
+03 дек. 2020 13:24:59,587 [main] INFO  Product - ProductName - laptop received
+03 дек. 2020 13:24:59,587 [main] INFO  Product - ProductName - phone received
+03 дек. 2020 13:24:59,588 [main] INFO  Product - ProductName - sneakers received
+03 дек. 2020 13:24:59,591 [main] INFO  Product - ProductName - car received
+03 дек. 2020 13:24:59,592 [main] INFO  Product - ProductName - powerbank received
+03 дек. 2020 13:25:42,150 [main] INFO  Warehouse - Warehouse created
+03 дек. 2020 13:25:42,255 [main] INFO  WarehouseFromFileCreator - Products: [Product {
+productId=1157525807, productName='phone', UPC=8934393244, manufacturer='CHINA', price=329.99, expirationDate=5, count=564
+}, Product {
+productId=1055310707, productName='suit', UPC=5755659334, manufacturer='ITALY', price=1500, expirationDate=3, count=200
+}, Product {
+productId=1307427015, productName='laptop', UPC=6568565864, manufacturer='USA', price=2499.99, expirationDate=6, count=349
+}, Product {
+productId=1669395383, productName='phone', UPC=3755659225, manufacturer='UK', price=900, expirationDate=4, count=100
+}, Product {
+productId=1064706375, productName='sneakers', UPC=2343563342, manufacturer='MALAYSIA', price=200, expirationDate=2, count=120
+}, Product {
+productId=2061672963, productName='car', UPC=5153563243, manufacturer='BELARUS', price=20000.49, expirationDate=10, count=50
+}, Product {
+productId=1927927994, productName='powerbank', UPC=6578405864, manufacturer='JAPAN', price=95, expirationDate=4, count=80
+}] was filled from input_files/warehouse_input.txt file successfully
+03 дек. 2020 13:25:42,269 [main] INFO  ProductDaoImpl - ProductDao created
+03 дек. 2020 13:25:42,270 [main] INFO  ProductServiceImpl - Product service created
+03 дек. 2020 13:25:42,271 [main] INFO  Product - ProductName - phone received
+03 дек. 2020 13:25:42,271 [main] INFO  Product - ProductName - suit received
+03 дек. 2020 13:25:42,271 [main] INFO  Product - ProductName - laptop received
+03 дек. 2020 13:25:42,272 [main] INFO  Product - ProductName - phone received
+03 дек. 2020 13:25:42,273 [main] INFO  Product - ProductName - sneakers received
+03 дек. 2020 13:25:42,273 [main] INFO  Product - ProductName - car received
+03 дек. 2020 13:25:42,273 [main] INFO  Product - ProductName - powerbank received
+03 дек. 2020 13:25:42,274 [main] INFO  ProductDaoImpl - Products - [Product {
+productId=1157525807, productName='phone', UPC=8934393244, manufacturer='CHINA', price=329.99, expirationDate=5, count=564
+}, Product {
+productId=1669395383, productName='phone', UPC=3755659225, manufacturer='UK', price=900, expirationDate=4, count=100
+}] was updated by name
+03 дек. 2020 13:28:35,377 [main] INFO  Warehouse - Warehouse created
+03 дек. 2020 13:28:35,483 [main] INFO  WarehouseFromFileCreator - Products: [Product {
+productId=1025510291, productName='phone', UPC=8934393244, manufacturer='CHINA', price=329.99, expirationDate=5, count=564
+}, Product {
+productId=1901324765, productName='suit', UPC=5755659334, manufacturer='ITALY', price=1500, expirationDate=3, count=200
+}, Product {
+productId=1754285186, productName='laptop', UPC=6568565864, manufacturer='USA', price=2499.99, expirationDate=6, count=349
+}, Product {
+productId=1901969825, productName='phone', UPC=3755659225, manufacturer='UK', price=900, expirationDate=4, count=100
+}, Product {
+productId=2036869769, productName='sneakers', UPC=2343563342, manufacturer='MALAYSIA', price=200, expirationDate=2, count=120
+}, Product {
+productId=1782613275, productName='car', UPC=5153563243, manufacturer='BELARUS', price=20000.49, expirationDate=10, count=50
+}, Product {
+productId=1578837941, productName='powerbank', UPC=6578405864, manufacturer='JAPAN', price=95, expirationDate=4, count=80
+}] was filled from input_files/warehouse_input.txt file successfully
+03 дек. 2020 13:28:35,494 [main] INFO  ProductDaoImpl - ProductDao created
+03 дек. 2020 13:28:35,494 [main] INFO  ProductServiceImpl - Product service created
+03 дек. 2020 13:28:35,495 [main] INFO  Product - ProductName - phone received
+03 дек. 2020 13:28:35,496 [main] INFO  Product - ProductName - suit received
+03 дек. 2020 13:28:35,496 [main] INFO  Product - ProductName - laptop received
+03 дек. 2020 13:28:35,497 [main] INFO  Product - ProductName - phone received
+03 дек. 2020 13:28:35,498 [main] INFO  Product - ProductName - sneakers received
+03 дек. 2020 13:28:35,498 [main] INFO  Product - ProductName - car received
+03 дек. 2020 13:28:35,499 [main] INFO  Product - ProductName - powerbank received
+03 дек. 2020 13:28:35,500 [main] INFO  ProductDaoImpl - Products - [Product {
+productId=1025510291, productName='phone', UPC=8934393244, manufacturer='CHINA', price=329.99, expirationDate=5, count=564
+}, Product {
+productId=1901969825, productName='phone', UPC=3755659225, manufacturer='UK', price=900, expirationDate=4, count=100
+}] was updated by name
+03 дек. 2020 13:29:59,902 [main] INFO  Warehouse - Warehouse created
+03 дек. 2020 13:30:00,001 [main] INFO  WarehouseFromFileCreator - Products: [Product {
+productId=1433283094, productName='phone', UPC=8934393244, manufacturer='CHINA', price=329.99, expirationDate=5, count=564
+}, Product {
+productId=1562292506, productName='suit', UPC=5755659334, manufacturer='ITALY', price=1500, expirationDate=3, count=200
+}, Product {
+productId=2080730216, productName='laptop', UPC=6568565864, manufacturer='USA', price=2499.99, expirationDate=6, count=349
+}, Product {
+productId=1567907213, productName='phone', UPC=3755659225, manufacturer='UK', price=900, expirationDate=4, count=100
+}, Product {
+productId=1874056956, productName='sneakers', UPC=2343563342, manufacturer='MALAYSIA', price=200, expirationDate=2, count=120
+}, Product {
+productId=2137111868, productName='car', UPC=5153563243, manufacturer='BELARUS', price=20000.49, expirationDate=10, count=50
+}, Product {
+productId=1467902445, productName='powerbank', UPC=6578405864, manufacturer='JAPAN', price=95, expirationDate=4, count=80
+}] was filled from input_files/warehouse_input.txt file successfully
