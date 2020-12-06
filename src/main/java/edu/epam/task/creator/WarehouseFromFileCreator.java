@@ -35,9 +35,9 @@ public class WarehouseFromFileCreator {
                 products.add(product);
             }
         } catch (FileNotFoundException e) {
-            logger.fatal("File not found");
+            logger.error("File not found");
         } catch (IOException e) {
-            logger.fatal(e);
+            logger.error(e);
         }
         logger.info("Products: {} was filled from {} file successfully", products, inputFileName);
         return products;

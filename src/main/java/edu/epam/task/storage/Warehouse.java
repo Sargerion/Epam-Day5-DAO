@@ -13,10 +13,10 @@ public class Warehouse {
     private static final Logger logger = LogManager.getLogger();
 
     private static Warehouse warehouse;
-    private final List<Product> products = new ArrayList<>();
+    private final List<Product> products;
 
     private Warehouse() {
-
+        products = new ArrayList<>();
     }
 
     public static Warehouse getInstance() {
@@ -47,6 +47,10 @@ public class Warehouse {
         products.add(index, product);
     }
 
+    public void replaceProductByIndex(Product product, int index) {
+        products.set(index, product);
+    }
+
     public List<Product> getProducts() {
         return new ArrayList<>(products);
     }
@@ -57,6 +61,16 @@ public class Warehouse {
 
     public int getSize() {
         return products.size();
+    }
+
+    public int getProductIndex(Product product) {
+        int index = 0;
+        for (int i = 0; i < warehouse.getSize(); i++) {
+            if(warehouse.getProduct(i).equals(product)) {
+                index = i;
+            }
+        }
+        return index;
     }
 
     @Override

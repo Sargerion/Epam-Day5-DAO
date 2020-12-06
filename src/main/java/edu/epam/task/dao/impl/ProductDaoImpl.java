@@ -2,18 +2,16 @@ package edu.epam.task.dao.impl;
 
 import edu.epam.task.dao.ProductDao;
 import edu.epam.task.entity.Product;
-import edu.epam.task.exception.ProductDaoException;
+import edu.epam.task.exception.DaoException;
 import edu.epam.task.storage.Warehouse;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
-public class ProductDaoImpl implements ProductDao<Product> {
+public class ProductDaoImpl implements ProductDao {
 
     private static final Logger logger = LogManager.getLogger();
     private static ProductDaoImpl productDao;
@@ -32,125 +30,177 @@ public class ProductDaoImpl implements ProductDao<Product> {
     }
 
     @Override
-    public void add(Product item) throws ProductDaoException {
-        if (warehouse.contains(item)) {
-            throw new ProductDaoException("Product is already in the warehouse");
+    public boolean createEntity(Product product) throws DaoException {
+        if (warehouse.contains(product)) {
+            throw new DaoException("Product is already in the warehouse");
         }
-        warehouse.setProduct(item);
-        logger.info("Product - {} was added to warehouse", item);
+        warehouse.setProduct(product);
+        logger.info("Product - {} was added to the warehouse", product);
+        return true;
     }
 
     @Override
-    public void deleteByName(String name) throws ProductDaoException {
+    public Product findEntityById(Long id) throws DaoException {
         if (warehouse.isEmpty()) {
-            throw new ProductDaoException("Warehouse is empty");
+            throw new DaoException("Warehouse is empty");
         }
-        Product product = null;
-        for (int i = 0; i < warehouse.getSize(); i++) {
-            if (warehouse.getProduct(i).getProductName().equals(name.toLowerCase())) {
-                product = warehouse.getProduct(i);
-                warehouse.deleteProduct(product);
+        Product foundProduct = new Product();
+        int index = 0;
+        while (index < warehouse.getSize()) {
+            if (warehouse.getProduct(index).getId() == id) {
+                foundProduct = warehouse.getProduct(index);
+                break;
             }
+            index++;
         }
-        if (product == null) {
-            throw new ProductDaoException("There are no such product");
-        }
-        warehouse.deleteProduct(product);
-        logger.info("Product - {} was deleted from warehouse", product);
+        logger.info("Product - {} with id = {} was found", foundProduct, id);
+        return foundProduct;
     }
 
     @Override
-    public void updateByName(String name, Product item) throws ProductDaoException {
+    public List<Product> findAll() throws DaoException {
         if (warehouse.isEmpty()) {
-            throw new ProductDaoException("Warehouse is empty");
-        }
-        List<Product> productsToDelete = new ArrayList<>();
-        Product product = null;
-        for (int i = 0; i < warehouse.getSize(); i++) {
-            if (warehouse.getProduct(i).getProductName().equals(name.toLowerCase())) {
-                productsToDelete.add(warehouse.getProduct(i));
-            }
-        }
-        for (int i = 0; i < warehouse.getSize(); i++) {
-            product = warehouse.getProduct(i);
-            for (int j = 0; j < productsToDelete.size(); j++) {
-                if (warehouse.getProduct(i).equals(productsToDelete.get(j))) {
-                    warehouse.setProduct(item, i);
-                    warehouse.deleteProduct(product);
-                }
-            }
-        }
-        if (productsToDelete.isEmpty()) {
-            throw new ProductDaoException("There are no such product");
-        }
-        logger.info("Products - {} was updated by name", productsToDelete);
-    }
-
-    @Override
-    public List<Product> findAll() throws ProductDaoException {
-        if (warehouse.isEmpty()) {
-            throw new ProductDaoException("Warehouse is empty");
+            throw new DaoException("Warehouse is empty");
         }
         List<Product> result = new ArrayList<>();
         for (int i = 0; i < warehouse.getSize(); i++) {
             result.add(warehouse.getProduct(i));
         }
-        logger.info("Product were loaded from warehouse - {}", result);
+        logger.info("Products were loaded from warehouse - {}", result);
         return result;
     }
 
     @Override
-    public List<Product> findProductsByName(String name) throws ProductDaoException {
+    public Product findProductByName(String productName) throws DaoException {
         if (warehouse.isEmpty()) {
-            throw new ProductDaoException("Warehouse is empty");
+            throw new DaoException("Warehouse is empty");
         }
-        List<Product> result = new ArrayList<>();
-        for (int i = 0; i < warehouse.getSize(); i++) {
-            Product product = warehouse.getProduct(i);
-            if (product.getProductName().equals(name.toLowerCase())) {
-                result.add(product);
+        Product foundProduct = new Product();
+        int index = 0;
+        while (index < warehouse.getSize()) {
+            if (warehouse.getProduct(index).getProductName().equals(productName.toLowerCase())) {
+                foundProduct = warehouse.getProduct(index);
+                break;
             }
+            index++;
         }
-        return result;
+        logger.info("Product - {} with name = {} was found", foundProduct, productName);
+        return foundProduct;
     }
 
     @Override
-    public List<Product> findProductsByName(String name, BigDecimal price) throws ProductDaoException {
+    public Product findProductByUPC(long UPC) throws DaoException {
         if (warehouse.isEmpty()) {
-            throw new ProductDaoException("Warehouse is empty");
+            throw new DaoException("Warehouse is empty");
         }
-        List<Product> result = new ArrayList<>();
-        for (int i = 0; i < warehouse.getSize(); i++) {
-            Product product = warehouse.getProduct(i);
-            if (product.getProductName().equals(name.toLowerCase()) && product.getPrice().compareTo(price) <= 0) {
-                result.add(product);
+        Product foundProduct = new Product();
+        int index = 0;
+        while (index < warehouse.getSize()) {
+            if (warehouse.getProduct(index).getUPC() == UPC) {
+                foundProduct = warehouse.getProduct(index);
+                break;
             }
+            index++;
         }
-        return result;
+        logger.info("Product - {} with UPC = {} was found", foundProduct, UPC);
+        return foundProduct;
     }
 
     @Override
-    public List<Product> findProductsByExpirationYear(int expirationYear) throws ProductDaoException {
+    public List<Product> findProductsByExpirationYear(int expirationYear) throws DaoException {
         if (warehouse.isEmpty()) {
-            throw new ProductDaoException("Warehouse is empty");
+            throw new DaoException("Warehouse is empty");
         }
         List<Product> result = new ArrayList<>();
+        Product product;
         for (int i = 0; i < warehouse.getSize(); i++) {
-            Product product = warehouse.getProduct(i);
+            product = warehouse.getProduct(i);
             if (product.getExpirationYear() > expirationYear) {
                 result.add(product);
             }
         }
+        logger.info("Products with expiration year > {} were found\nResult - {}", expirationYear, result);
         return result;
     }
 
     @Override
-    public List<Product> sortByPrice() throws ProductDaoException {
-        if (warehouse.isEmpty()) {
-            throw new ProductDaoException("Warehouse is empty");
+    public Product updateEntity(Product product, int index) throws DaoException {
+        if (warehouse.contains(product)) {
+            throw new DaoException("The warehouse alredy has that product -> " + product);
         }
-        List<Product> result = warehouse.getProducts();
-        result.sort(Comparator.comparing(Product::getPrice));
-        return result;
+        Product productForUpdate = warehouse.getProduct(index);
+        warehouse.replaceProductByIndex(product, index);
+        logger.info("Product {} was updated to {} product", productForUpdate, product);
+        return productForUpdate;
+    }
+
+    @Override
+    public Product updateEntityById(Product product, Long id) throws DaoException {
+        if (warehouse.contains(product)) {
+            throw new DaoException("The warehouse already has that product -> " + product);
+        }
+        Product productForUpdate = findEntityById(id);
+        int indexForUpdate = warehouse.getProductIndex(productForUpdate);
+        warehouse.replaceProductByIndex(product, indexForUpdate);
+        logger.info("Product {} was updated to {} product by id = {}", productForUpdate, product, id);
+        return productForUpdate;
+    }
+
+    @Override
+    public Product updateProductByName(String productName, Product product) throws DaoException {
+        if (warehouse.contains(product)) {
+            throw new DaoException("The warehouse alredy has that product -> " + product);
+        }
+        Product productForUpdate = findProductByName(productName);
+        int indexForUpdate = warehouse.getProductIndex(productForUpdate);
+        warehouse.replaceProductByIndex(product, indexForUpdate);
+        logger.info("Product {} was updated to {} product by productName = {}", productForUpdate, product, productName);
+        return productForUpdate;
+    }
+
+    @Override
+    public Product updateProductByUPC(long UPC, Product product) throws DaoException {
+        if (warehouse.contains(product)) {
+            throw new DaoException("The warehouse alredy has that product -> " + product);
+        }
+        Product productForUpdate = findProductByUPC(UPC);
+        int indexForUpdate = warehouse.getProductIndex(productForUpdate);
+        warehouse.replaceProductByIndex(product, indexForUpdate);
+        logger.info("Product {} was updated to {} product by UPC = {}", productForUpdate, product, UPC);
+        return productForUpdate;
+    }
+
+    @Override
+    public boolean deleteEntity(Product product) throws DaoException {
+        if (!warehouse.contains(product)) {
+            throw new DaoException("In the warehouse is no such product -> " + product);
+        }
+        warehouse.deleteProduct(product);
+        logger.info("Product {} was deleted", product);
+        return true;
+    }
+
+    @Override
+    public boolean deleteEntityById(Long id) throws DaoException {
+        Product product = findEntityById(id);
+        warehouse.deleteProduct(product);
+        logger.info("Product {} was deleted by id = {}", product, id);
+        return true;
+    }
+
+    @Override
+    public boolean deleteProductByName(String productName) throws DaoException {
+        Product product = findProductByName(productName);
+        warehouse.deleteProduct(product);
+        logger.info("Product {} was deleted by productName = {}", product, productName);
+        return true;
+    }
+
+    @Override
+    public boolean deleteProductByUPC(long UPC) throws DaoException {
+        Product product = findProductByUPC(UPC);
+        warehouse.deleteProduct(product);
+        logger.info("Product {} was deleted by UPC = {}", product, UPC);
+        return true;
     }
 }

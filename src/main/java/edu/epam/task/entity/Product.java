@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import static edu.epam.task.constant.ProductValidator.ID_LOWER_BOUND;
 import static edu.epam.task.constant.ProductValidator.UPC_LOWER_BOUND;
 
-public class Product {
+public class Product implements Entity {
 
     private static final Logger logger = LogManager.getLogger();
 

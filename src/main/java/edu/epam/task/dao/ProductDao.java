@@ -1,17 +1,23 @@
 package edu.epam.task.dao;
 
-import edu.epam.task.exception.ProductDaoException;
+import edu.epam.task.entity.Product;
+import edu.epam.task.exception.DaoException;
 
-import java.math.BigDecimal;
 import java.util.List;
 
-public interface ProductDao<T> {
-    void add(T item) throws ProductDaoException;
-    void deleteByName(String name) throws ProductDaoException;
-    void updateByName(String name, T item) throws ProductDaoException;
-    List<T> findAll() throws ProductDaoException;
-    List<T> findProductsByName(String name) throws ProductDaoException;
-    List<T> findProductsByName(String name, BigDecimal price) throws ProductDaoException;
-    List<T> findProductsByExpirationYear(int expirationYear) throws ProductDaoException;
-    List<T> sortByPrice() throws ProductDaoException;
+public interface ProductDao extends BaseDao<Long, Product> {
+
+    Product findProductByName(String productName) throws DaoException;
+
+    Product findProductByUPC(long UPC) throws DaoException;
+
+    List<Product> findProductsByExpirationYear(int expirationYear) throws DaoException;
+
+    Product updateProductByName(String productName, Product product) throws DaoException;
+
+    Product updateProductByUPC(long UPC, Product product) throws DaoException;
+
+    boolean deleteProductByName(String productName) throws DaoException;
+
+    boolean deleteProductByUPC(long UPC) throws DaoException;
 }
