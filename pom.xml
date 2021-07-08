@@ -11,6 +11,8 @@
     <properties>
         <maven.complier.source>1.15</maven.complier.source>
         <maven.complier.target>1.15</maven.complier.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
